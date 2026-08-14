@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html> 
+    <script>
+        
+        //asks for store
+
+        let store = prompt("Which Location?")
+
+        let hundreds = parseFloat((100) * prompt("# of $100 bills?"))
+
+        let fifties = parseFloat((50) * prompt("# of $50 bills?"))
+
+        let twenties = parseFloat((20) * prompt("# of $20 bills?"))
+
+        let tens = parseFloat((10) * prompt("# of $10 bills?"))
+
+        let fives = parseFloat((5) * prompt("# of $5 bills?"))
+        
+        let toonies = parseFloat((2) * prompt("# of toonies?"))
+
+        let loonies = parseFloat((1) * prompt("# of loonies?"))
+
+        let quarters = parseFloat((0.25) * prompt("# of quarters?"))
+
+        let dimes = parseFloat((0.10) * prompt("# of dimes?"))
+
+        let nickels = parseFloat((.05) * prompt("# of nickels?"))
+
+        let rawtotal = hundreds + fifties + twenties + tens + fives + toonies + loonies + quarters + dimes + nickels 
+
+        //handles dates
+
+        let now = new Date();
+
+        let NumMonth = now.getDate();
+
+        let Months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+
+        let LitMonth = Months[now.getMonth()];
+
+        let day = now.getDate();
+
+        //pretties up money 
+
+        let total = rawtotal.toFixed();
+
+        //prints output
+        
+        alert(LitMonth + " " + day + " opening " + store + ":" + "\n \nTotal Cash in register: $" + total)
+
+    </script>
+</body>
+</html>
