@@ -1,53 +1,85 @@
 <!DOCTYPE html>
 <html> 
-    <script>
-        
-        //asks for store
+    <head></head>
+    <body>
 
-        let store = prompt("Which Location?")
+        <p id="copy"><span id="month"></span> <span id="day"></span> opening <span id="store"></span><br><br>
 
-        let hundreds = parseFloat((100) * prompt("# of $100 bills?"))
+            Total cash in register: $<span id="total"></span>
+        </p>
+        <button onClick="copyText()" id="copybutton">Copy Text</button>
 
-        let fifties = parseFloat((50) * prompt("# of $50 bills?"))
+        <script>
+            
+            //asks for store
 
-        let twenties = parseFloat((20) * prompt("# of $20 bills?"))
+            let store = prompt("Which Location?")
 
-        let tens = parseFloat((10) * prompt("# of $10 bills?"))
+            let hundreds = parseFloat((100) * prompt("# of $100 bills?"))
 
-        let fives = parseFloat((5) * prompt("# of $5 bills?"))
-        
-        let toonies = parseFloat((2) * prompt("# of toonies?"))
+            let fifties = parseFloat((50) * prompt("# of $50 bills?"))
 
-        let loonies = parseFloat((1) * prompt("# of loonies?"))
+            let twenties = parseFloat((20) * prompt("# of $20 bills?"))
 
-        let quarters = parseFloat((0.25) * prompt("# of quarters?"))
+            let tens = parseFloat((10) * prompt("# of $10 bills?"))
 
-        let dimes = parseFloat((0.10) * prompt("# of dimes?"))
+            let fives = parseFloat((5) * prompt("# of $5 bills?"))
+            
+            let toonies = parseFloat((2) * prompt("# of toonies?"))
 
-        let nickels = parseFloat((.05) * prompt("# of nickels?"))
+            let loonies = parseFloat((1) * prompt("# of loonies?"))
 
-        let rawtotal = hundreds + fifties + twenties + tens + fives + toonies + loonies + quarters + dimes + nickels 
+            let quarters = parseFloat((0.25) * prompt("# of quarters?"))
 
-        //handles dates
+            let dimes = parseFloat((0.10) * prompt("# of dimes?"))
 
-        let now = new Date();
+            let nickels = parseFloat((.05) * prompt("# of nickels?"))
 
-        let NumMonth = now.getDate();
+            let rawtotal = hundreds + fifties + twenties + tens + fives + toonies + loonies + quarters + dimes + nickels 
 
-        let Months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+            //handles dates
 
-        let LitMonth = Months[now.getMonth()];
+            let now = new Date();
 
-        let day = now.getDate();
+            let NumMonth = now.getDate();
 
-        //makes the money total always have 2 decimal places
+            let Months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
 
-        let total = rawtotal.toFixed(2);
+            let LitMonth = Months[now.getMonth()];
 
-        //prints output
-        
-        alert(LitMonth + " " + day + " opening " + store + ":" + "\n \nTotal Cash in register: $" + total)
+            let day = now.getDate();
 
-    </script>
-</body>
+            //pretties up money 
+
+            let total = rawtotal.toFixed(2);
+
+            //handles injecting javascript into html body
+
+            const inmonth = document.getElementById("month")
+
+            const inday = document.getElementById("day")
+
+            const instore = document.getElementById("store")
+
+            const intotal = document.getElementById("total")
+
+            inmonth.textContent = LitMonth
+
+            inday.textContent = day
+
+            instore.textContent = store
+
+            intotal.textContent = total
+
+            //handles the copy button
+
+            function copyText() {
+                
+                const copyelement = document.getElementById("copy")
+                const bodytocopy = copyelement.innerText
+
+                navigator.clipboard.writeText(bodytocopy)
+            }
+        </script>
+    </body>
 </html>
